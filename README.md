@@ -12,7 +12,7 @@
 
 ### Install scripts
 
-They support Debian, Fedora, Arch, and SUSE.
+**Supported distributions:** Debian, Fedora, Arch, and SUSE.
 
 * `librewolf_INSTALL.sh`; install LibreWolf for your distribution
 

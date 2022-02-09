@@ -1,0 +1,42 @@
+#!/bin/sh
+# Script to curl wttr.in with some configuration settings
+# If you want a specific location, this will also allow you to type
+# weather [LOCATION]
+# to get that location (with the default settings).
+
+###################
+## Configuration ##
+###################
+
+# If $1 is not supplied, use a default location.
+# Enable it?
+ENABLE_DEFAULT_LOCATION="yes"
+DEFAULT_LOCATION="Palmerston_North"
+# Example:
+#ENABLE_DEFAULT_LOCATION="yes"
+#DEFAULT_LOCATION="Palmerston+North"
+
+# No matter what, always return weather for a fixed location.
+# Enable it?
+ENABLE_SET_LOCATION="no"
+SET_LOCATION="set+location+here"
+
+# Advanced options
+
+# Extra arguments to parse to wttr.in.
+# These come after the `?` in the domain.
+# For example, type format=3 in here for one line output,
+# or type lang=code where code is your language code
+# Separate arguments with &.
+WTTRIN_ARGUMENTS=""
+
+## End configuration ##
+
+if [ -z $2 ];
+	then printf "";
+	else $1="$1+$2"
+fi
+
+[ $ENABLE_SET_LOCATION     = "yes" ] && curl "wttr.in/$SET_LOCATION?$WTTRIN_ARGUMENTS" && exit 0
+[ $ENABLE_DEFAULT_LOCATION = "yes" ] && if [ -z $1 ]; then curl "wttr.in/$DEFAULT_LOCATION?$WTTRIN_ARGUMENTS"; else curl wttr.in/$1 && exit 0; fi
+[ $ENABLE_DEFAULT_LOCATION = "no"  ] && curl "wttr.in/$1?$WTTRIN_ARGUMENTS"

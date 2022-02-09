@@ -1,0 +1,16 @@
+#!/bin/sh
+## Script to launch minecraft using minecraft-launcher-cmd
+## Mojang accounts only
+
+## Usage: launch_minecraft [version]
+
+## Configuration
+# Mojang account email
+MC_USER="user@domain.com"
+
+# GnuPG password file location
+# Put your Minecraft account password in a file, then encrypt it with gpg.
+# Then type the file location here; an example is provided below:
+MC_PASS_LOCATION="$HOME/.config/launch_minecraft/mc_pass_example.gpg"
+
+minecraft-launcher-cmd --username $MC_USER --password $(gpg -d $MC_PASS_LOCATION) --version $1

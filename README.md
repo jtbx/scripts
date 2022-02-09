@@ -12,9 +12,11 @@
 
 ### Install scripts
 
+They support Debian, Fedora, Arch, and SUSE.
+
 * `librewolf_INSTALL.sh`; install LibreWolf for your distribution
 
-     Supports Debian, Fedora, SUSE, and Arch
+* `dwm_INSTALL.sh`; clone and compile my build of dwm
 
 ### Other scripts
 

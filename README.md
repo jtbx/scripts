@@ -8,6 +8,8 @@
 
 * `ctermlist`; print out your terminal emulator's supported colours
 
+* `viman`; launch manual pages with Vim
+
 * `launch_minecraft`; launch Minecraft (via minecraft-launcher-cmd) with ease and security
 
 ### Install scripts

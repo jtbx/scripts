@@ -14,12 +14,12 @@
 
 * `librewolf_INSTALL.sh`
 
-    curl -fsSL https://raw.githubusercontent.com/jtbx/scripts/main/installers/librewolf_INSTALL.sh | sudo sh
+      curl -fsSL https://raw.githubusercontent.com/jtbx/scripts/main/installers/librewolf_INSTALL.sh | sudo sh
 
 * `dwm_INSTALL.sh`
 
-    curl -fsSL https://raw.githubusercontent.com/jtbx/dwm/main/INSTALL.sh | sudo sh
+      curl -fsSL https://raw.githubusercontent.com/jtbx/dwm/main/INSTALL.sh | sudo sh
 
 * Install all (`autoinstall_ALL.sh`)
 
-    curl -fsSL https://raw.githubusercontent.com/jtbx/scripts/main/installers/autoinstall_ALL.sh | sudo sh
+      curl -fsSL https://raw.githubusercontent.com/jtbx/scripts/main/installers/autoinstall_ALL.sh | sudo sh

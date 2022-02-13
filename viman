@@ -1,0 +1,12 @@
+#!/bin/sh
+# Script to open man pages in vim, because vim is easier to find certain options than less
+# How it works: Running `viman sh` for example, would copy the sh man page to ~/.local/share/viman/sh and open it with vim.
+# Running `viman sh` in the future would open ~/.local/share/viman/sh in vim.
+# Pronounced 'vee eye man'
+
+VIMAN_MAN_LOCATION="$HOME/.local/share/viman"
+
+cd $VIMAN_MAN_LOCATION
+man $1 >> $1
+nvim $1
+# ^^ Change editor if you want

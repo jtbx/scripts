@@ -114,7 +114,6 @@ install_rpm()
 }
 # End functions
 
-msg_check "Installation completed."
 # Check if running as root
 [ $USER != "root" ] && error "Authentication failed. Try running the script as sudo." && exit 1
 

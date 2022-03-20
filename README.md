@@ -8,7 +8,11 @@
 
 * `ctermlist`; print out your terminal emulator's supported colours
 
-* `viman`; launch manual pages with Vim
+* `powermenu`; create a power options menu with dmenu
+
+* `dprompt`; make a dmenu Yes/No prompt based on $1 and $2
+
+* `hellodoge`; repeatedly run `doge` every second
 
 * `launch_minecraft`; launch Minecraft (via minecraft-launcher-cmd) with ease and security
 
@@ -24,4 +28,8 @@
 
 * `distro_detect.sh`; detect a user's distribution based on their package manager
 
-    Intented for use inside another shell script
+    Intended for use inside another shell script
+    
+* `random.sh`; roll a dice of 10 numbers, and decide what to do based on the number
+
+    Intended for use inside another shell script

@@ -9,7 +9,7 @@
 
 # Change this!
 WINDOW_MANAGER="dwm" # Your window manager. You should be able to run `killall $WINDOW_MANAGER` to shut down your WM.
-# If you're not on a WM or `killall WM_NAME_HERE` doesn't work for you, modify the variable below.
+# If you're not on a WM or `killall WM_NAME_HERE` doesn't work for you, modify the variable below to shut down your X session.
 SESSION_KILL_COMMAND="killall $WINDOW_MANAGER"
 # One thing I know is that if you're using XFCE as your desktop environment, set $WINDOW_MANAGER to "xfce4-session".
 

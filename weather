@@ -11,7 +11,7 @@
 # If $1 is not supplied, use a default location.
 # Enable it?
 ENABLE_DEFAULT_LOCATION="yes"
-DEFAULT_LOCATION="Palmerston_North"
+DEFAULT_LOCATION="spaces+are+like+this"
 # Example:
 #ENABLE_DEFAULT_LOCATION="yes"
 #DEFAULT_LOCATION="Palmerston+North"

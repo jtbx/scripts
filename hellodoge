@@ -1,0 +1,7 @@
+#!/bin/sh
+# Hello, doge!
+
+while :
+do
+doge ; sleep 1
+done

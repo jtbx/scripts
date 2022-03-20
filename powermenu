@@ -1,0 +1,44 @@
+#!/bin/sh
+# Dmenu script to make a power menu. 		Example:
+# Takes options: 				username [text box]
+# -a for all power options (default) 		Shut down
+# -p for power off prompt 			Restart
+# -r for restart prompt 			Log out
+# -l for log out prompt 			Cancel
+# Accepts only one option.
+
+# Change this!
+WINDOW_MANAGER="dwm" # Your window manager. You should be able to run `killall $WINDOW_MANAGER` to shut down your WM.
+# If you're not on a WM or `killall WM_NAME_HERE` doesn't work for you, modify the variable below.
+SESSION_KILL_COMMAND="killall $WINDOW_MANAGER"
+# One thing I know is that if you're using XFCE as your desktop environment, set $WINDOW_MANAGER to "xfce4-session".
+
+power_menu () {
+	MENU_CHOICE=$(printf "Shut down\nRestart\nLog out\nCancel\n" | dmenu -i -p "$USER")
+	[ "$MENU_CHOICE" = "Shut down" ] && poweroff
+	[ "$MENU_CHOICE" = "Restart" ] && reboot
+	[ "$MENU_CHOICE" = "Log out" ] && $SESSION_KILL_COMMAND
+}
+
+# Default power menu
+[ -z $1 ] && power_menu
+[ "$1" = "-a" ] && power_menu
+
+# Shut down prompt
+[ "$1" = "-p" ] && \
+	MENU_CHOICE=$(printf "No\nYes\nSchedule...\n" | dmenu -i -p "Shut down?")
+	[ "$MENU_CHOICE" = "Yes" ] && poweroff
+	[ "$MENU_CHOICE" = "Schedule..." ] && \
+		SCHEDULE_AMOUNT=$(shuf -i 1-9999 | sort | dmenu -i -p "Amount of minutes:") && shutdown $SCHEDULE_AMOUNT
+
+# Restart prompt
+[ "$1" = "-r" ] && \
+	MENU_CHOICE=$(printf "No\nYes\nSchedule...\n" | dmenu -i -p "Restart?")
+	[ "$MENU_CHOICE" = "Yes" ] && reboot
+	[ "$MENU_CHOICE" = "Schedule..." ] && \
+		SCHEDULE_AMOUNT=$(shuf -i 1-9999 | sort | dmenu -i -p "Amount of minutes:") && shutdown -r $SCHEDULE_AMOUNT
+
+# Log out prompt
+[ "$1" = "-l" ] && \
+	MENU_CHOICE=$(printf "No\nYes\n" | dmenu -i -p "Restart?")
+	[ "$MENU_CHOICE" = "Yes" ] && $SESSION_KILL_COMMAND

@@ -1,0 +1,13 @@
+#!/bin/sh
+# Dmenu script to generate a prompt based on $1 and $2.
+# """Inspired""" by Luke Smith
+
+# Usage: dprompt <PROMPT> <COMMAND>
+# <PROMPT> is the question, <COMMAND> is the command it executes if the answer is Yes.
+
+CMDARGS="$2 $3 $4 $5 $6 $7 $8 $9" # Sorry, was the best way to do it
+
+[ $(printf "No\nYes\n" | dmenu -i -p "$1") = "Yes" ] \
+	&& $CMDARGS # User-specified command, line 8
+
+unset CMDARGS

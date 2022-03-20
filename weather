@@ -10,8 +10,8 @@
 
 # If $1 is not supplied, use a default location.
 # Enable it?
-ENABLE_DEFAULT_LOCATION="no"
-DEFAULT_LOCATION="spaces+are+like+this"
+ENABLE_DEFAULT_LOCATION="yes"
+DEFAULT_LOCATION="Palmerston_North"
 # Example:
 #ENABLE_DEFAULT_LOCATION="yes"
 #DEFAULT_LOCATION="Palmerston+North"
@@ -32,11 +32,11 @@ WTTRIN_ARGUMENTS=""
 
 ## End configuration ##
 
-if [ -z $2 ];
-	then printf "";
-	else $1="$1+$2"
+if [ -z $2 ]; then printf "";
+	elif [ -z $3 ]; then LOCATION_ARGS="$1+$2";
+		else LOCATION_ARGS="$1+$2+$3";
 fi
 
 [ $ENABLE_SET_LOCATION     = "yes" ] && curl "wttr.in/$SET_LOCATION?$WTTRIN_ARGUMENTS" && exit 0
-[ $ENABLE_DEFAULT_LOCATION = "yes" ] && if [ -z $1 ]; then curl "wttr.in/$DEFAULT_LOCATION?$WTTRIN_ARGUMENTS"; else curl wttr.in/$1 && exit 0; fi
-[ $ENABLE_DEFAULT_LOCATION = "no"  ] && curl "wttr.in/$1?$WTTRIN_ARGUMENTS"
+[ $ENABLE_DEFAULT_LOCATION = "yes" ] && if [ -z $1 ]; then curl "wttr.in/$DEFAULT_LOCATION?$WTTRIN_ARGUMENTS"; else curl wttr.in/$LOCATION_ARGS && exit 0; fi
+[ $ENABLE_DEFAULT_LOCATION = "no"  ] && curl "wttr.in/$LOCATION_ARGS?$WTTRIN_ARGUMENTS"
